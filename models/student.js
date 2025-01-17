@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const studentSchema = new Mongoose.Schema({
+const studentSchema = new mongoose.Schema({
     name:{
         type:String,
         required: true
@@ -13,14 +13,14 @@ const studentSchema = new Mongoose.Schema({
 
     gradeLevel: {
         type: Number,
-        enum: [12]
+        enum: [12],
         required: true
     },
 
-    college:
+    college:{
         type: String,
-        enum: ["Accepted", "Not Accepted", "Not Going to College"]
-        required: true
+        enum: ["Accepted", "Not Accepted", "Not Going to College"],
+        required: true}
     
 })
 

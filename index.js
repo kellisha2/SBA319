@@ -3,7 +3,8 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 5050;
 const conn = require("./config/db");
-// const posts = require('./routes/posts')
+const seniorStudents = require('./config/seed')
+const Student = require('./models/student')
 // connectToDatabase();
 
 // app.use('/api/posts', posts)
@@ -13,6 +14,16 @@ conn()
 
 app.get('/', (req, res) =>{
     res.send('Home Page')
+})
+
+app.get('/students/seed' , async (req, res) =>{
+  try {
+    await Student.deleteMany({})
+    await Student.create(seniorStudents)
+    res.json(seniorStudents)
+  } catch (error) {
+    console.log(`Something went wrong loading seed data: ${error.message}`)
+  }
 })
 
 app.listen(PORT, () => {
