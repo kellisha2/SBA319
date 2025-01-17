@@ -1,0 +1,1 @@
+Creating a database by connecting to MongoDB, entering data into the database, using CRUD request to manipulate the data.
