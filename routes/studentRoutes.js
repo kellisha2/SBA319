@@ -3,9 +3,9 @@ const router = express.Router()
 const Student = require('../models/student')
 
 
-router.get('/' , (req, res) => {
+router.get('/' , async (req, res) => {
     try {
-        const allStudents = Student.find({})
+        const allStudents = await Student.find({})
         res.json(allStudents)
     } catch (error) {
         res.status(500).json({error: error.message})
@@ -15,7 +15,7 @@ router.get('/' , (req, res) => {
 
 router.post('/' , async (req, res) => {
     try {
-        const newStudent = Student.create(req.body)
+        const newStudent = await Student.create(req.body)
         console.log(req.body)
         res.json(newStudent)
     } catch (error) {
@@ -25,7 +25,7 @@ router.post('/' , async (req, res) => {
 
 router.get('/:id' , async (req, res) =>{
     try {
-       const oneStudent = Student.findById(req.params.id)
+       const oneStudent = await Student.findById(req.params.id)
        res.json(oneStudent)
     } catch (error) {
         res.status(500).json({error: error.message})
@@ -35,7 +35,7 @@ router.get('/:id' , async (req, res) =>{
 
 router.put('/:id', async (req, res)=>{
     try {
-        const updatedStudent = await Fruit.findByIdAndUpdate(req.params.id, req.body)
+        const updatedStudent = await Student.findByIdAndUpdate(req.params.id, req.body)
         res.json(updatedStudent)
     } catch (error) {
         res.status(500).json({error: error.message})
@@ -45,7 +45,8 @@ router.put('/:id', async (req, res)=>{
 
 router.delete('/:id', async (req, res)=>{
     try {
-        const deletedStudent = await Fruit.findByIdAndDelete(req.params.id)
+        console.log(req.params.id);
+        const deletedStudent = await Student.findByIdAndDelete(req.params.id);
         res.json(deletedStudent)
     } catch (error) {
         res.status(500).json({error: error.message})
