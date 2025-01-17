@@ -16,10 +16,30 @@ router.get('/' , (req, res) => {
 router.post('/' , async (req, res) => {
     try {
         const newStudent = Student.create(req.body)
-        console.log(newStudent)
+        console.log(req.body)
         res.json(newStudent)
     } catch (error) {
         res.status(500).json({error: error.message})
+    }
+})
+
+router.get('/:id' , async (req, res) =>{
+    try {
+       const oneStudent = Student.findById(req.params.id)
+       res.json(oneStudent)
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+})
+
+
+router.put('/:id', async (req, res)=>{
+    try {
+        const updatedStudent = await Fruit.findByIdAndUpdate(req.params.id, req.body)
+        res.json(updatedStudent)
+    } catch (error) {
+        res.status(500).json({error: error.message})
+        
     }
 })
 
