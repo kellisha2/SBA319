@@ -5,9 +5,12 @@ const PORT = process.env.PORT || 5050;
 const conn = require("./config/db");
 const seniorStudents = require('./config/seed')
 const Student = require('./models/student')
-// connectToDatabase();
+const studentRoutes = require('./routes/studentRoutes')
 
-// app.use('/api/posts', posts)
+// connectToDatabase();
+app.use(express.json())
+
+app.use('/api/students', studentRoutes)
 
 conn()
 
