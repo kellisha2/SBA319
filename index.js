@@ -7,7 +7,9 @@ const seniorStudents = require('./config/seed')
 const Student = require('./models/student')
 const studentRoutes = require('./routes/studentRoutes')
 
-// connectToDatabase();
+
+
+
 app.use(express.json())
 
 app.use('/api/students', studentRoutes)
