@@ -37,4 +37,53 @@ const seniorStudents = [
     },
 ];
 
+
+const teacherData = [
+    {
+    name: "Mrs. Applebottom",
+    subject: "Math"
+    },
+
+    {
+    name: "Mrs. Bobinsky",
+    subject: "History"
+    },
+
+    {
+    name: "Mr. Johnson",
+    subject: "Engliah"
+
+    },
+    {
+    name: "Mrs. Lauer",
+    subject: "Science"
+    },
+        ]
+
+
+const collegeData = [
+    {
+        name: "University of Delaware",
+        state: "Delaware",
+        minimumGPA: 2.5
+    },
+
+    {
+        name: "Penn State",
+        state: "Pennsylvania",
+        minimumGPA: 3.0
+    },
+
+    {
+        name: "University of Maryland",
+        state: "Maryland",
+        minimumGPA: 2.7
+
+    },
+    {
+        name: "Howard University",
+        state: "District of Columbia",
+        minimumGPA: 3.0
+    },
+]
 module.exports = seniorStudents
